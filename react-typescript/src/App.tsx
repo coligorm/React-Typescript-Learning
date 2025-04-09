@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Message from './Message';
@@ -47,13 +47,16 @@ import Message from './Message';
 //   );
 // }
 
-function App() {
+const App: React.FC = () => {
+  const [userName, setUserName] = useState<string>('User');
+  const [userMessage, setuserMessage] = useState<string>('Initial message');
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h1>TypeScript is cool</h1>
-        <Message message='Hello' myname='Colin' />
+        <Message message={userMessage} myname={userName} />
         </header>
     </div>
   )
