@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Message from './Message';
+import { UserContext } from './UserContext';
 
 // function App() {
 //   let stringValue: string = 'Hello World';
@@ -62,13 +63,10 @@ const App: React.FC = () => {
   }, [])
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <UserContext.Provider value={{myname: userName, message: userMessage}}>
         <h1>TypeScript is cool</h1>
-        <Message message={userMessage} myname={userName} />
-        </header>
-    </div>
+        <Message />
+    </UserContext.Provider>
   )
 }
 
