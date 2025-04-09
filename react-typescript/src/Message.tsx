@@ -1,9 +1,14 @@
 import React from 'react'
 
-const Message: React.FC<> == () => {
+interface UserMessage {
+    myname: string;
+    message: string;
+}
+
+const Message: React.FC<UserMessage> = ({myname, message}) => {
     return (
         <p>
-            {name}, {message}
+            {message} {myname}
         </p>
     )
 }

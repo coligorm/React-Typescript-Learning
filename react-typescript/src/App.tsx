@@ -49,9 +49,12 @@ import Message from './Message';
 
 function App() {
   return (
-    <div>
-      <h1>Typescript is cool</h1>
-      <Message name='Colin' message='Hello, World' />
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <h1>TypeScript is cool</h1>
+        <Message message='Hello' myname='Colin' />
+        </header>
     </div>
   )
 }
