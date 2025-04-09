@@ -8,7 +8,7 @@ The **key learning points** for me are:
  - **Higher-Order Components:** Learn to implement higher-order components to reuse components while adding new functionality.
 
 ## React: Using TypeScript - Course Progress
-- [ ] Chapter 1: Setup and Basics
-- [ ] Chapter 2: First Steps
+- [X] Chapter 1: Setup and Basics
+- [X] Chapter 2: First Steps
 - [ ] Chapter 3: Interfaces
 - [ ] Chapter 4: Hooks
