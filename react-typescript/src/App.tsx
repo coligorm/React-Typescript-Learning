@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Message from './Message';
@@ -50,6 +50,16 @@ import Message from './Message';
 const App: React.FC = () => {
   const [userName, setUserName] = useState<string>('User');
   const [userMessage, setuserMessage] = useState<string>('Initial message');
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      // update the state after 5 seconds
+      setUserName('Colin');
+      setuserMessage('Updated message with TypeScript');
+    }, 5000)
+
+    return () => clearTimeout(timer)
+  }, [])
 
   return (
     <div className="App">

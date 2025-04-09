@@ -8,7 +8,7 @@ interface UserMessage {
 const Message: React.FC<UserMessage> = ({myname, message}) => {
     return (
         <p>
-            {message} {myname}
+            {myname}: {message}
         </p>
     )
 }
