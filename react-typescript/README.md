@@ -1,46 +1,248 @@
-# Getting Started with Create React App
+# React: Using TypeScript
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[LinkedIn Learning Course](https://www.linkedin.com/learning/react-using-typescript-23743818?contextUrn=urn%3Ali%3AlearningCollection%3A7315539718224445441)
 
-## Available Scripts
+## Key Points
 
-In the project directory, you can run:
+- **Structured Development:** Combining TypeScript with React provides a more structured approach to JavaScript application development, making your code cleaner and easier to maintain.
+- **Types and Components:** You'll learn about basic and complex types, as well as functional and stateful components in React.
+- **Interfaces and Best Practices:** The course covers how to use TypeScript interfaces to improve your React code and reviews best practices.
+- **Higher-Order Components:** Learn to implement higher-order components to reuse components while adding new functionality.
 
-### `npm start`
+## React: Using TypeScript - Course Progress
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [X] Chapter 1: Setup and Basics
+- [X] Chapter 2: First Steps
+- [X] Chapter 3: Interfaces
+- [X] Chapter 4: Hooks
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+---
 
-### `npm test`
+# Learning React with TypeScript: Course Notes
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## Chapter 1: Setup
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+> **Summary:**  
+Learn how to set up a new React project with TypeScript and understand the benefits of using TypeScript with React.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Creating a New React + TypeScript App
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Use the following command to scaffold a new app:
+  ```bash
+  npx create-react-app my-app --template typescript
+  ```
+- `npx` runs packages without installing them globally, avoiding version conflicts.
 
-### `npm run eject`
+### Why TypeScript?
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Helps with **type safety** and **better tooling support** in JavaScript apps.
+- Encourages catching errors at compile-time rather than runtime.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### React Import in `.tsx` Files
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Always add this line at the top when using React in `.tsx` files:
+  ```tsx
+  import React from 'react';
+  ```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+---
 
-## Learn More
+## Chapter 2: First Steps
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+> **Summary:**  
+Covers the basics of using TypeScript in a React project, including type definitions and functional component syntax.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Video Breakdown:
+
+- *Introduction to TypeScript with React (2m 17s)*
+- *Basic Types (4m 21s)*
+- *Other Complex Types (4m 53s)*
+- *Introduction to React Components (1m 6s)*
+- *React Components Syntax (5m 27s)*
+
+---
+
+### Basic Types in TypeScript
+
+- `string`
+- `number`
+- `boolean`
+- `array` (technically an object)
+  - `number[]` – array of numbers
+  - `Array<string>` – generic array of strings
+
+---
+
+### Complex Types
+
+- **Tuple**  
+  Store multiple types in a fixed-length array.
+  ```ts
+  let aTuple: [string, number] = ["Hello", 20];
+  ```
+
+- **Enum**  
+  Defines named constants.
+  ```ts
+  enum Code { First = 1, Second = 2 }
+  ```
+
+- **any**  
+  Use only if you're unsure about a type (avoid when possible).
+
+- **void**  
+  Indicates no return value from a function.
+
+---
+
+### Functions in TypeScript
+
+- Must include return type:
+  ```ts
+  const warning = (): void => {
+    console.log('Warning');
+  };
+  ```
+
+---
+
+### React Functional Components
+
+#### Overview
+
+- Functional components are JS functions that return JSX (HTML-like).
+- In modern React, we prefer functional over class components.
+
+#### Syntax Guidelines
+
+- Use `const` to declare.
+- Component names must start with a **capital letter**.
+- Define return types using `React.FC`.
+
+#### Example:
+
+```tsx
+// With props
+type Props = { name: string };
+
+const MyComponent: React.FC<Props> = (props) => {
+  return <div>{props.name}</div>;
+};
+
+// Without props
+const MyComponentWithoutProps: React.FC = () => {
+  return <div>MyComponentWithoutProps</div>;
+};
+```
+
+#### React.FC
+
+- `type React.FC<P = {}> = React.FunctionComponent<P>`
+- `P` — props type
+- `FC` — Functional Component
+
+🔗 [React TypeScript Cheatsheet – Function Components](https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/function_components)
+
+---
+
+## Chapter 3: Interfaces
+
+> **Summary:**  
+Learn how to define and use interfaces to ensure type safety in props and state.
+
+### Video Breakdown:
+- *Introduction to Interfaces (3m 7s)*
+- *Define Our State with TypeScript (5m 9s)*
+- *Review Best Practices for Interfaces (1m 46s)*
+
+---
+
+### Why Use Interfaces?
+
+- Define **shape and structure** of props or state.
+- Used only at compile-time (no runtime cost).
+- Improve code readability and maintainability.
+
+---
+
+### Key Concepts
+
+- Define props using an interface before using them in a component.
+- Use `?` to make props optional.
+- Use `readonly` to create immutable props.
+- Interfaces can describe both props and state.
+
+---
+
+### Using State with TypeScript
+
+```tsx
+const [userName, setUserName] = useState<string>('User');
+```
+
+This code:
+- Declares a `userName` key in state.
+- Provides a function `setUserName` to update the state.
+- Specifies the type (`string`) using TypeScript.
+- Sets a default value `'User'`.
+
+---
+
+## Chapter 4: Hooks
+
+> **Summary:**  
+Understand how to use React hooks like `useEffect` and Context API in a TypeScript environment.
+
+### Video Breakdown:
+- *Overview of Hooks with TypeScript (2m 16s)*
+- *Implementation of useEffect with TypeScript (4m 19s)*
+- *Implementation of Context with TypeScript (8m 37s)*
+
+---
+
+### Hooks Overview
+
+- Enable state and side-effect management in functional components.
+- Support functional programming principles.
+- Can be reused or customized across components.
+
+---
+
+### `useEffect` Hook
+
+- Runs side effects **after** component renders.
+- Re-runs if dependency values change.
+
+```tsx
+useEffect(() => {
+  console.log("Component mounted or updated");
+}, [/* dependencies */]);
+```
+
+---
+
+### Context API with TypeScript
+
+#### Steps to Implement:
+
+1. Create a new context file (e.g. `UserContext.tsx`).
+2. Move interfaces from component files to context file.
+3. Create and export context:
+   ```tsx
+   export const UserContext = React.createContext<UserContextType>(/* default value */);
+   ```
+
+4. In `App.tsx`, wrap your app with the provider:
+   ```tsx
+   <UserContext.Provider value={/* your context value */}>
+     {/* children */}
+   </UserContext.Provider>
+   ```
+
+#### Why Use Context?
+
+- Makes global data accessible across all components.
+- Reduces the need for prop drilling.
+- Improves maintainability and clarity.
