@@ -1,70 +1,87 @@
 .input {
-    display: flex;
-    width: 95%;
-    position: relative; /* postion relative as we want the button to display inside of the input*/
-    align-items: center;
+  display: flex;
+  width: 80%;
+  margin: 10px;
+  position: relative; /* postion relative as we want the button to display inside of the input*/
+  align-items: center;
 }
 
 .input_box {
-    width: 100%;
-    border-radius: 50px;
-    padding: 20px 30px;
-    font-size: 25px;
-    border: none;
-    transition: 0.2s;
-    box-shadow: inset 0 0 5px black; /* create a shadow inside the input box */
+  width: 100%;
+  border-radius: 50px;
+  padding: 20px 30px;
+  font-size: 25px;
+  border: none;
+  transition: 0.2s;
+  box-shadow: inset 0 0 5px black; /* create a shadow inside the input box */
 }
 
 /* focus is used to darken the rest of the screen when we click on the input box */
 .input_box:focus {
-    box-shadow: 0 0 10px 1000px rgba(0, 0, 0, 0.5);
-    outline: none;
+  box-shadow: 0 0 10px 1000px rgba(0, 0, 0, 0.5);
+  outline: none;
 }
 
 .input_submit {
-    position: absolute; /* Button positioned inside the input */
-    width: 50px;
-    height: 50px;
-    margin: 12px;
-    border-radius: 50px;
-    right: 0px;
-    border: none;
-    font-size: 15px;
-    background-color: #2f74c0;
-    color: white;
-    transition: 0.2s all;
-    box-shadow: 0 0 10px black;
+  position: absolute; /* Button positioned inside the input */
+  width: 50px;
+  height: 50px;
+  margin: 12px;
+  border-radius: 50px;
+  right: 0px;
+  border: none;
+  font-size: 18px;
+  background-color: #2f74c0;
+  color: white;
+  transition: 0.2s all;
+  box-shadow: 0 0 10px black;
 }
 
 /* Lighten the button when hover over the button */
 .input_submit:hover {
-    background-color: #388ae2;
+  background-color: #388ae2;
 }
 
 /* Button slightly decreases in size when clicked */
 .input_submit:active {
-    transform: scale(0.8);
-    box-shadow: 0 0 5px black;
+  transform: scale(0.8);
+  box-shadow: 0 0 5px black;
+}
+
+.container {
+  width: 95%;
+  display: flex;
+  margin-top: 10px;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .todos {
+  border-radius: 5px;
   display: flex;
-  justify-content: space-evenly;
-  width: 90%;
-  flex-wrap: wrap;
+  flex-direction: column;
+  width: 47.5%;
+  padding: 15px;
+  background-color: rgb(50, 195, 205);
 }
 
 .todos_single {
   display: flex;
   border-radius: 5px;
   padding: 20px;
-  margin-top: 15px;
+  margin: 10px 5px 10px 5px;
   background-image: url("https://img.freepik.com/free-photo/crumpled-yellow-paper-background-close-up_60487-2390.jpg?size=626&ext=jpg");
   transition: 0.2s;
 }
 
+.todos_single:hover {
+  box-shadow: 0 0 5px black;
+  transform: scale(1.03);
+}
+
 .todos_single--text {
   flex: 1; /* Take all the available space and push icons to the right */
+  height: 60%;
   padding: 5px;
   border: none;
   font-size: 20px;
@@ -99,9 +116,5 @@
   .todos {
     width: 95%;
     margin-bottom: 10px;
-  }
-
-  .todos_single {
-    width: 100%;
   }
 }

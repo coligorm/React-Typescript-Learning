@@ -18,7 +18,7 @@ const SingleTodo = ({ todo, todos, setTodos }: Props) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleEdit = (e: React.FormEvent, id: number) => {
-    e.preventDefault();
+    e.preventDefault(); /* Stops a screen refresh */
 
     setTodos(
       todos.map((todo) =>
@@ -31,7 +31,6 @@ const SingleTodo = ({ todo, todos, setTodos }: Props) => {
   useEffect(() => {
     inputRef.current?.focus();
   }, [edit]);
-  
 
   const handleDone = (id: number) => {
     setTodos(
@@ -42,11 +41,18 @@ const SingleTodo = ({ todo, todos, setTodos }: Props) => {
   };
 
   const handleDelete = (id: number) => {
-    setTodos(todos.filter((todo) => todo.id !== id))
+    setTodos(
+      todos.filter((todo) =>
+        todo.id !== id
+      )
+    );
   };
 
   return (
-    <form className='todos_single' onSubmit={(e) => handleEdit(e, todo.id)}>
+    <form
+      className='todos_single'
+      onSubmit={(e) =>
+        handleEdit(e, todo.id)}>
       {edit ? (
         <input
           ref={ inputRef }
@@ -59,15 +65,12 @@ const SingleTodo = ({ todo, todos, setTodos }: Props) => {
       ) : (
         <span className='todos_single--text'>{ todo.todo } </span>
       )}
-
       <div>
         <span className='icon' onClick={() => {
           if (!edit && !todo.isDone) {
             setEdit(!edit)
           }
-        }}
-        >
-          
+        }}> 
           <AiFillEdit />
         </span>
         <span className='icon' onClick={() => handleDelete(todo.id)}>
@@ -77,7 +80,7 @@ const SingleTodo = ({ todo, todos, setTodos }: Props) => {
           <MdDone />
         </span>
       </div>
-      </form>
+    </form>
   )
 }
 
